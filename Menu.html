@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HQ Restaurant - Menu</title>
+    <link rel="stylesheet" href="Styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="Acceuil.html"><img src="Images/Images/LOGO.png" alt="Logo du Restaurant"></a>
+        </div>
+
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <nav>
+            <ul>
+                <li><a href="A_Propos.html">About</a></li>
+                <li><a href="Menu.html" class="active">MENU</a></li>
+                <li><a href="Promotions.html">Promotions</a></li>
+                <li><a href="Contact.html">CONTACT US</a></li>
+                <li><a href="Reservation.html" class="cta-button">RESERVATION</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section">
+            <h2>MENU</h2>
+            <div class="menu-subnav">
+                <a href="Snacks.html">BAR SNACKS</a>
+                <a href="Menu.html" class="active"> Main MENU</a>
+                <a href="Grill.html">GRILL</a>
+                <a href="Sides.html">SIDES</a>
+                <a href="Flatbreads.html">FLATBREADS</a>
+                <a href="Drinks.html">DRINKS</a>
+            </div>
+
+            <div class="grid-2-col full-height" id="principale">
+                <div>
+                    <img src="Images/Images/Kingklip JP.jpg" alt="Grande photo d'un plat" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="content-box">
+                    <h3 style="text-align: center;">Starters</h3>
+                    <ul class="specials-list">
+                        <li><span><strong>Beef Fillet Carpaccio</strong><br><small>Fennel seeds, parmesan, rocket, olive oil</small></span><strong>125</strong></li>
+                        <li><span><strong>Greek Salad (Vegan)</strong><br><small>Feta, olives, cucumber, green pepper, capers & tomato</small></span><strong>75</strong></li>
+                        <li><span><strong>Classic Caesar Salad</strong><br><small>Cos lettuce, anchovy dressing, croutons (add grilled chicken or prawns)</small></span><strong>80</strong></li>
+                        <li><span><strong>Salt & Pepper Calamari</strong><br><small>With lemon aioli</small></span><strong>92</strong></li>
+                        <li><span><strong>Classic Beef Fillet Tartare (125g)</strong><br><small>Egg yolk with classic accompaniments</small></span><strong>145</strong></li>
+                        <li><span><strong>Grilled Halloumi (Vegan)</strong><br><small>Chilli-infused honey, coriander yoghurt, flatbread</small></span><strong>105</strong></li>
+                        <li><span><strong>Peri-Peri Chicken Livers</strong><br><small>Served with toasted focaccia</small></span><strong>80</strong></li>
+                        <li><span><strong>Lamb Koftas</strong><br><small>With hummus, tzatziki & pita bread</small></span><strong>72</strong></li>
+                    </ul>
+
+                    <h3 style="text-align: center;">Main</h3>
+                    <ul class="specials-list">
+                        <li><span><strong>HG burger</strong><br><small>200g juicy beef patty, garlic aioli, gherkins, onion marmalade, gruyère</small></span><strong>185</strong></li>
+                        <li><span><strong>Kingklip</strong><br><small>Sautéed spinach, patatas bravas, lemon butter</small></span><strong>255</strong></li>
+                        <li><span><strong>Chicken Parmigiana</strong><br><small>Panko-coated chicken breast, mozzarella, roasted romanita linguini</small></span><strong>195</strong></li>
+                        <li><span><strong>Baked Malanzane (Vegan)</strong><br><small>Layers of aubergine, tomato, parmesan, fresh side salad</small></span><strong>185</strong></li>
+                        <li><span><strong>Fish & Chips</strong><br><small>Beer-battered hake with tartar sauce</small></span><strong>195</strong></li>
+                        <li><span><strong>Beef & Guinness Pie</strong><br><small>Slow-braised beef topped with a flaky crust served with mash</small></span><strong>190</strong></li>
+                        <li><span><strong>Portobello Mushrooms</strong><br><small>Café de paris butter, fries & HQ salad (Top-up included!)</small></span><strong>205</strong></li>
+                    </ul>
+
+                    <h3 style="text-align: center;">DESSERTS</h3>
+                    <ul class="specials-list">
+                        <li><span><strong>Chocolate Fondant</strong><br><small>Warm, rich chocolate cake with a molten centre. Worth the wait!</small></span><strong>85</strong></li>
+                        <li><span><strong>Cheesecake</strong><br><small>Baked basque-style with a caramelised top & creamy centre</small></span><strong>85</strong></li>
+                        <li><span><strong>Lemon Tart</strong><br><small>Zesty lemon curd in a crisp pastry shell, citrus crème fraîche</small></span><strong>75</strong></li>
+                        <li><span><strong>Crème Brûlée</strong><br><small>Silky vanilla custard with a perfectly torched caramel crust</small></span><strong>70</strong></li>
+                        <li><span><strong>Affogato</strong><br><small>A shot of hot espresso poured over vanilla ice cream</small></span><strong>65</strong></li>
+                        <li><span><strong>Selection of Gelato</strong><br><small>2 scoops — vanilla, chocolate, salted caramel, or lemon curd</small></span><strong>80</strong></li>
+                    </ul>
+
+                    <h3 style="text-align: center;">THE YOUNG ONES</h3>
+                    <ul class="specials-list">
+                        <li><span><strong>Whatever</strong><br><small>Beef burger with fries</small></span><strong>75</strong></li>
+                        <li><span><strong>I Wanna Go Play</strong><br><small>Chicken schnitzel and fries</small></span><strong>75</strong></li>
+                        <li><span><strong>Anything</strong><br><small>Beef meatballs with linguini</small></span><strong>80</strong></li>
+                        <li><span><strong>I Want Chocolate!!</strong><br><small>Vanilla ice-cream with chocolate sauce</small></span><strong>70</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+  
+    <footer>
+        <div class="footer-logos">
+            <img src="Images/Images/LOGO2.png" alt="LOGO FOOTER">
+        </div>
+
+        <div class="footer-social">
+            <a href="https://www.instagram.com/hqsteakhouse" target="_blank">
+                <img src="Images/Images/Insta.png" alt="Instagram">
+            </a>
+            <a href="https://www.facebook.com/share" target="_blank">
+                <img src="Images/Images/Facebook.png" alt="Facebook">
+            </a>
+        </div>
+        
+         <p>&copy; 2025 HQ Restaurant.</p>
+        <p><strong>CONTACT</strong> <br>
+            +27 21 555 0158 <br>
+           social@hqsteak.co.za</p>
+    </footer>
+
+</body>
+</html>
