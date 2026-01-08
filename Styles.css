@@ -1,0 +1,862 @@
+/* ==========================================================================
+   1. IMPORTATION ET VARIABLES
+   ========================================================================== */
+   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:wght@400;700&display=swap');
+
+   :root {
+       /* Vert clair : #BCDCC2 */
+       --primary-color: #BCDCC2;
+       /* Gris sombre : #414042 */
+       --secondary-color: #414042;
+       
+       --text-color-light: white; 
+       --text-color-dark: var(--secondary-color); 
+       --light-bg: #F8F8F8; 
+       
+       /* Typographie */
+       --font-title: 'Playfair Display', serif; 
+       --font-body: 'Roboto', sans-serif; 
+   }
+   
+   /* ==========================================================================
+      2. RÉINITIALISATION ET BASE
+      ========================================================================== */
+   * {
+       margin: 0;
+       padding: 0;
+       box-sizing: border-box;
+   }
+   
+   body {
+       font-family: var(--font-body);
+       background-color: var(--secondary-color); 
+       color: var(--text-color-light); 
+       line-height: 1.6;
+       padding-top: 80px; /* Marge pour le header fixe */
+   }
+   
+   main {
+       max-width: 1500px;
+       margin: 0 auto;
+   }
+   
+   .section {
+       padding: 50px 2%;
+   }
+   
+   h2 {
+       font-family: var(--font-title);
+       font-size: 3em;
+       color: var(--text-color-light); 
+       text-align: center;
+       margin-bottom: 40px;
+   }
+   
+   h3 {
+       font-family: var(--font-title);
+       font-size: 1.8em;
+       color: var(--text-color-light);
+       margin-bottom: 10px;
+   }
+   
+   /* ==========================================================================
+      3. HEADER ET NAVIGATION
+      ========================================================================== */
+   header {
+       position: fixed;
+       top: 0;
+       left: 0; 
+       width: 100%; 
+       z-index: 1000;
+       background-color: var(--secondary-color);
+       border-bottom: 1px solid var(--primary-color);
+       display: flex;
+       justify-content: space-between; 
+       align-items: center; 
+       padding: 15px 5%;
+   }
+   
+   .logo img {
+       height: 50px;
+       vertical-align: middle;
+   }
+   
+   nav {
+       flex-grow: 1;
+   }
+   
+   nav ul {
+       list-style: none;
+       display: flex;
+       justify-content: center;
+       width: 100%;
+       margin: 0; 
+       padding: 0;
+   }
+   
+   nav ul li {
+       margin-left: 30px;
+   }
+   
+   nav ul li a {
+       text-decoration: none;
+       color: var(--text-color-light); 
+       font-weight: bold;
+       text-transform: uppercase;
+       padding: 5px 0;
+       transition: color 0.3s;
+   }
+   
+   nav ul li a:hover, 
+   nav ul li a.active {
+       color: var(--primary-color);
+       border-bottom: 2px solid var(--primary-color);
+   }
+   
+   /* Menu Sous-Navigation */
+   .menu-subnav {
+       display: flex;
+       justify-content: center;
+       flex-wrap: wrap;
+       gap: 15px;
+       padding: 20px 0;
+       margin-bottom: 20px;
+       border-top: 1px solid var(--primary-color);
+       border-bottom: 1px solid var(--primary-color);
+   }
+   
+   .menu-subnav a {
+       color: var(--primary-color);
+       font-weight: bold;
+       padding: 5px 10px;
+       transition: background-color 0.3s;
+   }
+   
+   .menu-subnav a:hover, .menu-subnav a.active {
+       background-color: var(--primary-color);
+       color: var(--secondary-color);
+       border-bottom: none;
+   }
+   
+   /* Mobile Icon (Burger) */
+   #menu-toggle {
+       display: none;
+   }
+   
+   .menu-icon {
+       display: none;
+   }
+   
+   /* ==========================================================================
+      4. BOUTONS ET CTA
+      ========================================================================== */
+
+   .cta-button {
+       background-color: var(--primary-color);
+       color: var(--secondary-color) !important;
+       padding: 10px 20px;
+       border-radius: 5px;
+       transition: background-color 0.3s, color 0.3s;
+       border: 2px solid var(--primary-color);
+       text-decoration: none; 
+       font-weight: bold;
+   }
+   
+   .cta-button:hover {
+       background-color: white; 
+       border-color: white;
+       color: var(--secondary-color) !important;
+   }
+   
+   .request-now-button {
+       display: block;
+       margin: 0 auto;
+       width: auto; 
+   }
+   
+   /* ==========================================================================
+      5. HERO ET OVERLAYS
+      ========================================================================== */
+   .hero-container {
+       position: relative; 
+       width: 100%;
+       height: 100vh;
+   }
+   
+   .hero-image {
+       width: 100%; 
+       height: 100vh; 
+       object-fit: cover;
+       margin: 0; 
+       padding: 0;
+       display: block; 
+   }
+   
+   .hero-logo-overlay {
+       position: absolute;
+       top: 50%;
+       left: 5%; 
+       transform: translateY(-50%);
+   }
+   
+   .hero-logo-overlay img { width: 400px; }
+   
+   /* ==========================================================================
+      6. MISE EN PAGE : GRILLES ET BOÎTES
+      ========================================================================== */
+   .content-box {
+       padding: 20px;
+       background-color: rgba(255, 255, 255, 0.05); 
+       border: 1px solid var(--primary-color);
+       height: 100%; 
+       display: block;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       text-align: left;
+       overflow-y: auto;
+   }
+   
+   .content-box.centered {
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       text-align: center;
+   }
+   
+   .content-box p, .content-box li {
+       color: white;
+       margin-bottom: 3px;
+       width: 100%;
+   }
+   
+   .content-box li {
+       list-style: none;
+   }
+   
+   .content-box a {
+       color: var(--primary-color);
+   }
+   
+   .content-box .cta-button {
+       margin-top: 20px;
+   }
+   
+   .grid-2x2 {
+       display: grid;
+       grid-template-columns: 1fr 1fr;
+       grid-template-rows: auto auto;
+       gap: 20px;
+   }
+   
+   .grid-2x2 .grid-item {
+       background-color: var(--primary-color); 
+       color: var(--secondary-color); 
+       padding: 30px;
+       min-height: 200px;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       text-align: center;
+   }
+   
+   .grid-2x2 .grid-item h3 {
+       color: var(--secondary-color);
+   }
+   
+   .grid-2x2 .grid-item img {
+       width: 100%;
+       height: 100%;
+       object-fit: cover;
+       max-height: 600px;
+   }
+   
+   .grid-2-col {
+       display: grid;
+       grid-template-columns: 2fr 2fr;
+       gap: 20px;
+       align-items: stretch; 
+   }
+   
+   .grid-image-box {
+       height: 100%; 
+   }
+   
+   .grid-image-box img {
+       width: 100%;
+       height: 100%;
+       object-fit: cover; 
+   }
+   
+   /* ==========================================================================
+      7. SECTIONS SPÉCIFIQUES (ABOUT, SPECIALS, ADDRESS, MAP)
+      ========================================================================== */
+   
+     /* ==========================================================================
+   CONTACT PAGE SPECIFIC STYLES - EQUAL SIZED BOXES
+   ========================================================================== */
+
+/* 1. Set the grid to 50/50 split */
+.contact-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important; /* Makes both columns exactly the same width */
+    gap: 30px !important;
+    align-items: stretch !important; /* Forces both boxes to stretch to the same height */
+    max-width: 1200px !important;
+    margin: 40px auto !important;
+}
+
+/* 2. Set the Image Box to match the content height */
+.contact-image-size {
+    height: 100% !important; /* Fills the grid area */
+    min-height: 500px !important; /* Set your desired base height here */
+    width: 100% !important;
+    border: 1px solid var(--primary-color) !important;
+    overflow: hidden !important;
+}
+
+.contact-image-size img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Ensures the image fills the box without distorting */
+}
+
+/* 3. Set the Contact Box to match the image height */
+.contact-box {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important; /* Centers text vertically */
+    align-items: center !important;     /* Centers text horizontally */
+    text-align: center !important;
+    padding: 40px !important;
+    border: 1px solid var(--primary-color) !important;
+    background-color: transparent !important;
+    height: 100% !important;
+    min-height: 500px !important; /* Must match the image box min-height */
+}
+
+/* 4. Text Spacing */
+.contact-box h3 {
+    color: var(--primary-color) !important;
+    margin-bottom: 20px !important;
+}
+
+.contact-box p {
+    margin-bottom: 10px !important;
+}
+
+/* Mobile: Stack them on top of each other */
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .contact-image-size, .contact-box {
+        min-height: 350px !important;
+    }
+}
+   /* Specials List */
+   .specials-list {
+       list-style: none;
+       padding: 0;
+       width: 100%;
+       margin: 15px 0;
+   }
+   
+   .specials-list li {
+       display: flex;
+       justify-content: space-between;
+       align-items: flex-start;
+       padding: 12px 0;
+       border-bottom: 1px solid var(--primary-color);
+       text-align: left;
+   }
+   
+   .specials-list li:last-child {
+       border-bottom: none;
+   }
+   
+   .specials-list li span {
+       flex: 1;
+       padding-right: 10px;
+   }
+   
+   .specials-list li strong {
+       white-space: nowrap;
+   }
+   
+   .subtitle {
+       font-weight: bold;
+       font-size: 0.8em;
+       margin: 10px 0;
+   }
+   
+   /* Story Box (About) */
+   .story-box {
+       text-align: left !important;
+       padding: 40px !important;
+   }
+   
+   .story-box h3 {
+       margin-bottom: 25px;
+       letter-spacing: 1px;
+       text-transform: uppercase;
+       font-size: 2.2em;
+   }
+   
+   .story-box p {
+       margin-bottom: 20px;
+       font-size: 1.1em;
+       color: var(--secondary-color);
+       max-width: 95%;
+   }
+ 
+   
+   .lead-text {
+       font-family: var(--font-title);
+       font-style: italic;
+       font-size: 1.4em !important;
+       line-height: 1.3;
+       margin-bottom: 25px !important;
+       font-weight: bold;
+   }
+   
+   /* Address Box */
+   .address-box {
+       padding: 60px 40px !important;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       text-align: center;
+   }
+/* ===============================
+   BASE PAGE
+================================ */
+body.about-page {
+    background-color: #2f2f2f;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* ===============================
+   HERO SECTION
+================================ */
+.story-hero {
+    padding: 100px 7vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ===============================
+   OUR STORY LABEL
+================================ */
+.story-label {
+    font-family: 'Playfair Display', serif;
+    color: #BCDCC2;
+    font-size: 1.6rem;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin-bottom: 80px;
+
+    /* Align label like reference */
+    align-self: flex-start;
+}
+
+/* ===============================
+   MAIN TEXT BLOCK
+================================ */
+.story-text-block {
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: left ;
+}
+
+/* Headline lines */
+.story-text-block .line {
+    font-family: 'Playfair Display', serif;
+    color: #BCDCC2;
+    font-size: clamp(2.5rem, 3.5vw, 2.9rem);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    margin: 0;
+    white-space: normal;
+}
+
+/* ===============================
+   FOOTER ROW
+================================ */
+.story-footer {
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 100px;
+}
+
+/* Tagline */
+.tagline {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    line-height: 1.15;
+    color: rgba(188, 220, 194, 0.35);
+}
+
+/* HQ Logo */
+.floating-logo img {
+    width: 180px;
+ 
+}
+
+/* ===============================
+   IMAGE SECTION
+================================ */
+.story-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 1024px) {
+    .story-text-block {
+        max-width: 90vw;
+    }
+
+    .story-text-block .line {
+        font-size: 5vw;
+        line-height: 1;
+    }
+
+    .story-footer {
+        flex-direction: column;
+        gap: 40px;
+        align-items: flex-start;
+    }
+}
+
+
+   
+   .address-box h2 {
+       margin-bottom: 30px;
+       letter-spacing: 3px;
+       border-bottom: 1px solid var(--primary-color);
+       padding-bottom: 10px;
+       display: inline-block;
+   }
+   
+   .address-details {
+       margin-bottom: 35px;
+   }
+   
+   .restaurant-name {
+       font-family: var(--font-title);
+       font-size: 1.8em;
+       font-weight: bold;
+       color: var(--primary-color);
+       display: block;
+       margin-bottom: 15px;
+   }
+   
+   .address-details p {
+       font-family: var(--font-body);
+       font-size: 1.1em;
+       line-height: 1.8;
+       color: white;
+       letter-spacing: 0.5px;
+   }
+   
+   .address-box .cta-button {
+       margin-top: 10px;
+       min-width: 150px;
+   }
+   
+   /* Map */
+   .full-width-map-container {
+       height: 450px; 
+       width: 100%;
+       border: 1px solid var(--primary-color); 
+   }
+   
+   .full-width-map-container iframe {
+       width: 100%;
+       height: 100%;
+       border: none;
+   }
+   
+   /* ==========================================================================
+      8. WIDGET DE RÉSERVATION
+      ========================================================================== */
+   .reservation-widget-container {
+       max-width: 800px; 
+       margin: 0 auto 50px auto;
+       padding: 30px;
+   }
+   
+   .widget-intro-text {
+       font-size: 1.1em;
+       margin-bottom: 25px;
+       text-align: center;
+   }
+   
+   .reservation-selectors {
+       display: flex;
+       justify-content: space-around;
+       gap: 20px;
+       margin-bottom: 30px;
+   }
+   
+   .selector-item {
+       flex: 1;
+       display: flex;
+       flex-direction: column;
+   }
+   
+   .selector-item label {
+       font-weight: bold;
+       margin-bottom: 8px;
+       color: var(--primary-color);
+       font-family: var(--font-title);
+       font-size: 1.1em;
+   }
+   
+   .selector-item select,
+   .selector-item input[type="date"] {
+       width: 100%;
+       padding: 10px 15px;
+       border: 1px solid var(--primary-color);
+       border-radius: 5px;
+       background-color: var(--secondary-color); 
+       color: var(--text-color-light); 
+       font-family: var(--font-body);
+       font-size: 1em;
+       cursor: pointer;
+   }
+   
+   .widget-separator {
+       border: 0;
+       height: 1px;
+       background-color: rgba(188, 220, 194, 0.3); 
+       margin: 20px 0 30px 0;
+   }
+   
+   .available-slots-title {
+       font-weight: bold;
+       font-size: 1.1em;
+       margin-bottom: 20px;
+       color: var(--primary-color);
+       text-align: center;
+   }
+   
+   .time-slots-grid {
+       display: grid;
+       grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
+       gap: 15px;
+       margin-bottom: 40px;
+   }
+   
+   .time-slot {
+       padding: 10px 5px;
+       border: 1px solid var(--primary-color);
+       border-radius: 5px;
+       background-color: transparent; 
+       color: var(--primary-color);
+       font-weight: bold;
+       cursor: pointer;
+       transition: background-color 0.2s, color 0.2s;
+       text-align: center;
+   }
+   
+   .time-slot:hover {
+       background-color: rgba(188, 220, 194, 0.1);
+   }
+   
+   .time-slot.selected {
+       background-color: var(--primary-color);
+       color: var(--secondary-color);
+       border-color: var(--primary-color);
+   }
+   
+   .time-slot.unavailable {
+       color: rgba(255, 255, 255, 0.3); 
+       border-color: rgba(255, 255, 255, 0.1);
+       cursor: not-allowed;
+       text-decoration: line-through;
+   }
+   
+   .time-slot.unavailable:hover {
+       background-color: transparent; 
+   }
+   
+   /* ==========================================================================
+      9. FOOTER ET RÉSEAUX SOCIAUX
+      ========================================================================== */
+   footer {
+       background-color: var(--secondary-color); 
+       color: white;
+       padding: 30px 5%;
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       margin-top: 40px;
+       border-top: 1px solid var(--primary-color);
+   }
+   
+   footer .footer-logos img {
+       height: 100px;
+       margin-left: 10px; 
+   }
+   
+   footer .footer-social img {
+       height: 40px;
+       margin-right: 10px;
+   }
+   
+   .social-links-container {
+       display: flex;
+       gap: 20px; 
+       align-items: center;
+   }
+   
+   .social-logo {
+       height: 35px; 
+       width: auto;
+       transition: opacity 0.3s;
+   }
+   
+   .social-logo:hover {
+       opacity: 0.7;
+   }
+   
+   /* ==========================================================================
+      10. RESPONSIVE (MEDIA QUERIES)
+      ========================================================================== */
+   @media (max-width: 768px) {
+       header {
+           flex-direction: row;
+           justify-content: space-between;
+           padding: 10px 5%;
+       }
+       
+       body {
+           padding-top: 70px; 
+       }
+       
+       .menu-icon {
+           display: flex;
+           flex-direction: column;
+           justify-content: space-around;
+           width: 30px;
+           height: 30px;
+           cursor: pointer;
+           z-index: 1002;
+       }
+       
+       .menu-icon span {
+           width: 100%;
+           height: 3px;
+           background-color: var(--primary-color);
+           border-radius: 2px;
+       }
+   
+       nav {
+           position: fixed;
+           top: 0;
+           right: -100%; 
+           width: 100%;
+           height: 100vh;
+           background-color: var(--secondary-color);
+           display: flex;
+           flex-direction: column;
+           justify-content: center;
+           align-items: center;
+           transition: right 0.4s ease-in-out;
+           z-index: 1001;
+       }
+   
+       #menu-toggle:checked ~ nav {
+           right: 0;
+       }
+   
+       nav ul {
+           flex-direction: column;
+           width: 100%;
+           text-align: center;
+           padding: 0;
+           display: flex;
+           align-items: center;
+       }
+   
+       nav ul li {
+           margin: 15px 0;
+           margin-left: 0;
+           width: 100%;
+       }
+   
+       nav ul li a {
+           font-size: 1.5rem;
+           padding: 15px;
+           background-color: transparent;
+           display: inline-block;
+       }
+       
+       header .cta-button {
+           display: none; 
+       }
+       
+       nav .cta-button {
+           display: block !important;
+           margin: 20px auto 0 auto;
+           font-size: 1.2rem;
+           width: 250px; 
+           max-width: 80% !important;
+           text-align: center;
+           padding: 15px 20px;
+       }
+       
+       .grid-2x2, .grid-2-col {
+           grid-template-columns: 1fr;
+       }
+   
+       .grid-2x2 .grid-item, .grid-2-col .content-box, .grid-image-box {
+           margin-bottom: 20px;
+           height: auto; 
+       }
+   
+       .content-box {
+           height: auto;
+       }
+      
+        .story-label {
+        font-size: 2rem;
+        text-align: center; /* On phone, center looks better */
+       }
+        .story-hero-text p {
+        font-size: 2.5rem;
+        line-height: 1.1;
+       }
+   
+       
+       h2 { font-size: 2.5em; }
+       .full-width-map-container { height: 300px; }
+       .reservation-selectors { flex-direction: column; gap: 15px; }
+       .time-slots-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+       
+       footer {
+           flex-direction: column;
+           text-align: center;
+       }
+   
+       footer .footer-logos {
+           margin-top: 15px;
+       }
+   }
