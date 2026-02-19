@@ -258,7 +258,7 @@
        background-color: var(--primary-color); 
        color: var(--secondary-color); 
        padding: 30px;
-       min-height: 200px;
+       min-height: 100px;
        display: flex;
        flex-direction: column;
        justify-content: center;
@@ -306,7 +306,38 @@
      /* ==========================================================================
    CONTACT PAGE SPECIFIC STYLES - EQUAL SIZED BOXES
    ========================================================================== */
+   .menu-header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* Espace entre le texte et le titre */
+    margin-bottom: 20px;
+}
 
+/* Style des liens de téléchargement */
+.download-link {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+    border: 1px solid var(--primary-color);
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    white-space: nowrap; /* Évite que le texte passe sur 2 lignes */
+}
+
+.download-link:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+/* Ajustement du H2 pour qu'il n'ait plus de marge auto qui casse le flex */
+.menu-header-container h2 {
+    margin: 0;
+}
 /* 1. Set the grid to 50/50 split */
 .contact-grid {
     display: grid !important;
